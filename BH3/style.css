@@ -1,0 +1,39 @@
+h1,h2{
+    font-family: 'Oswald',sans-serif;
+}
+ul{
+    list-style-type: none;
+    margin:0;
+}
+li{
+    display: inline;
+}
+#navbar a{
+    margin-left:25px;
+    margin-right:50px;
+}
+
+body{
+    color:darkblue;
+    margin: 10px 50px 10px 50px;
+    font-family: 'open sans',sans-serif;
+    width: 950px;
+}
+img{
+    float: left;
+}
+.left{
+    float: left;
+   width: 300px;
+   padding: 1em;
+}
+.right{
+    float: right;
+    width:300px;
+    padding: 1em;
+}
+.center{
+    margin-left: 300px;
+    margin-right:300px;
+    padding: 1em;
+}
