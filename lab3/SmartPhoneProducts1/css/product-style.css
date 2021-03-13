@@ -1,38 +1,45 @@
-
+body
+{
+    width: 800px; 
+    margin: 0 auto;
+}
+h1, h2
+{
+    text-align:center;
+}
+body > div
+{
+  border: 5px solid black;
+  display: flex;
+}
 main 
 {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
-}
-div
-{
-    border: 5px solid black;
-    display: flex;   
+    background: url(https://dport96.github.io/ITM352/morea/030.ui-basics/phone_globe.jpg) 50% center ;
 }
 
-body
-{
-    width: 800px; margin: 0 auto;
-    image-resolution: 200px;
-}
-
-
-image
+.item image
 {
     width: 200px;
     height: 200px;
 }
+
 .rotate img
 {
   animation: rotation .3s infinite linear;
 }
 
 @keyframes rotation {
-  from {
+  from { 
     transform: rotate(0deg);
   }
   to {
     transform: rotate(359deg);
   }
 }
+ p.solid
+ {
+   border-style: solid;
+ }

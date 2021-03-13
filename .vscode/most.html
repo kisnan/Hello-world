@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Phone Store</title>
+        <script>
+            var store_name = 'Qiyan Lin';
+            var first_name = 'Qiyan';
+            var last_name = 'Lin';
+
+        </script>
+
+
+
+
+</head>
+<body>
+
+    
+       <center>
+            <span style="font-suze: 600%;">
+             <script>
+            document.write("<b>" + first_name "</b><i> " + last_name "</i> 's");                
+            </script>
+            </span>
+            <h1>
+                Used Smart Phone Store
+            </h1>
+        </center>
+
+
+    
+    <p style="test-aligh: center; font-weight: bold;">
+        Hit:<span id="hits_span">0</span>
+        Spins:<span id="spins_span"></span>
+        Hit/Spin:<span id="hit_spin_span">0</span>
+ <main>
+        <section class="item"
+        onmouseover="
+            spins += 2;
+            spins_span.innerHTML = spins;
+            this.className = 'item rotate';
+            hit_spin_span.innerHTML = (hits_span.innerHTML/Spins_span.innerHTML).toFixed(2);"
+        onclick="
+            hits_span.innerHTML = ++hits;
+            this.className='item';">
+        </section> 
+    </main>
+</body>
+    <footer>
+        <script>
+        documetn.write(`
+            <table border="1" style="margin-left: auto; margin-right: auto; text-aligh: center;"> 
+            <tr><th colspan="2"><h1>Your One Step For Used Phone ${first_name[0] + '.'  + last_name[0]  + '.'}'s</h1></th></tr>
+            <tr><td>${++line}.</td><td><br />Copyright @ ${first_name +  '' + last_name}</td></tr>
+            <tr><td>${++line}.</td><td><br />${now.getFullYear()}</td></tr>
+            <tr><td>${++line}.</td><td><br />${(now.getHours() +  11) % 12 + 1 + ":" + now.getMinutes() ' ' + ((now.getHours() < 12)? 'AM':'PM'}</td></tr>
+        </table>
+                   
+        </script>            
+    </footer>
+ `);
+  
+       
+
+    
+
+    
+
+</html>
