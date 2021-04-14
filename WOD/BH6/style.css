@@ -14,26 +14,12 @@ li{
 }
 
 body{
-    color:darkblue;
+    color:yellow;
     margin: 10px 50px 10px 50px;
     font-family: 'open sans',sans-serif;
     width: 950px;
+    background-color: black;
 }
 img{
     float: left;
-}
-.left{
-    float: left;
-   width: 300px;
-   padding: 1em;
-}
-.right{
-    float: right;
-    width:300px;
-    padding: 1em;
-}
-.center{
-    margin-left: 300px;
-    margin-right:300px;
-    padding: 1em;
 }

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    document.getElementById('btn').addEventListener('click', () => {
+    const c1 = document.getElementById('c1');
+    const c2 = document.getElementById('c2');
+    c2.appendChild(c1.firstElementChild);
+    c1.appendChild(c2.firstElementChild);
+  });
+  <div id="c1">
+    <div>item 1</div>
+  </div>
+  
+  <div id="c2">
+    <div>item 2</div>
+  </div>
+  
+  
+  <button id="btn">switch</button>
+  
+  </script>
+</body>
+</html>

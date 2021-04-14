@@ -1,0 +1,24 @@
+main 
+{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+div
+{
+    border: 5px solid black;
+    display: flex;   
+}
+
+body
+{
+    width: 800px; margin: 0 auto;
+    image-resolution: 200px;
+}
+
+
+image
+{
+    width: 200px;
+    height: 200px;
+}
