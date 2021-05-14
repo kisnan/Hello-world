@@ -1,0 +1,171 @@
+<script src="./camera_product.js"></script>
+<script>
+    let params = (new URL(document.location)).searchParams;
+    var quantity = [];
+    var name = params.get("name");
+    var username = params.get('username');
+    //define function
+    function loadJSON(service, callback) {   
+    var xobj = new XMLHttpRequest();
+    xobj.overrideMimeType("application/json");
+    xobj.open('POST', service, false);
+    xobj.onreadystatechange = function () {
+          if (xobj.readyState == 4 && xobj.status == "200") {
+            // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+            callback(xobj.responseText);
+          }
+    };
+    xobj.send(null);  
+ }
+ var cart_quantity;
+        loadJSON('get_cart', function (response) {
+            // Parsing JSON string into object
+            cart_quantity = JSON.parse(response);
+        });
+        console.log(cart_quantity);
+</script>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Cart </title>
+    <link href="invoice.css" rel="stylesheet">
+    <header>
+        <h1><a href="./index.html"> <img src="./image/SonyAlpha.jpg" height="100px"></a> Sony Authorized Dealer</h1>
+    </header>
+</head>
+<div>
+    <link href="nav_bar.css" rel="stylesheet">
+    <nav>    
+        <div class="w3-bar w3-black">
+            <a href="./index.html" class="w3-bar-item w3-button">Homepage</a>
+            <a href="products_display.html" class="w3-bar-item w3-button">Products</a>
+            <a href="login.html" class="w3-bar-item w3-button">Login</a>
+            <a href="cart.html" class="w3-bar-item w3-button">Shopping Cart</a>
+            <a href="about.html" class="w3-bar-item w3-button">About</a>
+</nav>
+</div>    
+<body>
+    <br>
+    <center> 
+    <form action = "checkout" method="POST">
+ 
+    <br>
+    <table border="2">
+    <tbody>
+    <tr>
+      <th style="text-align: center;" width="43%">Item</th>
+      <th style="text-align: center;" width="11%">quantity</th>
+      <th style="text-align: center;" width="13%">price</th>
+      <th style="text-align: center;" width="54%">extended price</th>
+    </tr>
+    <tr>
+    <script>
+        subtotal = 0;
+        for(i in products){
+            a_qty = cart_quantity[i];
+            if(
+                a_qty == 0 
+                //!isNonNegInt(product_quantity_array[i])
+                ) continue;
+        extended_price = products[i].price * a_qty;
+        subtotal += extended_price;
+        document.write(`
+        <tr>
+            <td width="43%">${products[i].brand}</td>
+            <td align="center" width="11%">${a_qty}</td>
+            <td width="13%">$${products[i].price}</td>
+            <td width="54%">$${extended_price}</td>
+        </tr>`)} 
+
+    </script>
+    <script>
+        var tax_rate = 0.0575;
+        var tax = tax_rate*subtotal
+
+        if(subtotal <= 50){
+            shipping = 2; 
+        }else if(subtotal <= 100){
+            shipping = 5;
+        }else{
+            shipping = 0.05*subtotal
+        }
+
+        var total = subtotal + tax + shipping;
+    </script>
+    
+    <script> document.write(`
+        <td colspan="4" width="100%">&nbsp;</td>
+        </tr>
+        <tr>
+        <td style="text-align: center;" colspan="3" width="67%">Sub-total</td>
+        <td width="54%">$${subtotal}</td>
+        </tr>
+        <tr>
+        <td style="text-align: center;" colspan="3" width="67%"><span style="font-family: arial;">Tax @ ${tax_rate*100}%</span></td>
+        <td width="54%">$${tax.toFixed(2)}</td>
+        </tr>
+        <tr>
+        <td style="text-align: center;" colspan="3" width="67%"><span style="font-family: arial;">Shipping</span></td>
+        <td width="54%">$${shipping.toFixed(2)}</td>
+        </tr>
+        <tr>
+        <td style="text-align: center;" colspan="3" width="67%"><strong>Total</strong></td>
+        <td width="54%"><strong>$${total.toFixed(2)}</strong></td>
+        </tr>
+        `)
+</script>
+  </tbody>
+</table>
+    <b>
+    <h3>
+        OUR SHIPPING POLICY IS:
+        <br>
+        subtotal $0 - $49.99 will be $2 shipping
+        <br>
+        A subtotal $50 - $99.99 will be $5 shippingƒ
+        <br>
+        Subtotals over $100 will be charged 5% of the subtotal amount
+    </h3>
+    </b>
+<input type="submit" value="Proceed to checkout" name="Process_cart">
+
+<script>
+    if (params.has('process_cart')) {
+            has_errors = false; // assume quantities are valid from the start
+            total_qty = 0; // need to check if something was selected so we will look if the total > 0
+            for (let i in products) {
+                if (params.has(`quantity${i}`)) {
+                    a_qty = params.get(`quantity${i}`);
+                    // make textboxes sticky in case of invalid data
+                    product_selection_form[`quantity${i}`].value = a_qty;
+                    total_qty += a_qty; 
+                    if(!isNonNegInt(a_qty)) {
+                        has_errors = true; // oops, invalid quantity
+                        checkQuantityTextbox(product_selection_form[`quantity${i}`]); // show where the error is
+                    }
+                }
+            }
+            // Now respond to errors or redirect to invoice if all is ok
+            if(has_errors) {
+                alert("Please enter only valid quantities!");
+            } else if(total_qty == 0) { // no quantity selections, just give a general alert
+                alert("Please select some quantities!");
+            } else { // all good to go! sent to login 
+                location.href = "./login.html" + location.search;
+                window.stop;
+            }
+        
+    }
+</script>
+
+    
+</center>
+
+
+</body>
+</html>

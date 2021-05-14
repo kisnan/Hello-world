@@ -1,0 +1,44 @@
+ /* General */
+
+ html {
+  font-family: 'Raleway', sans-serif;
+  background-color: black;
+  font-size: 10px;
+  /*Background color*/
+  
+}
+body {
+  width: 800px;
+  margin: 0 auto;
+  background-color: rgba(235, 164, 30, 0.763);
+}
+
+h1 {
+  font-size: 5rem;
+  background-size: 48px 48px;
+  background-blend-mode: lighten;
+  margin: 0;
+  text-align: center;
+}
+
+header, aside, main, footer {
+  padding: 20px;
+}
+
+
+
+
+/*  Form styling */
+main {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+tbody{
+  background-color: orange;
+}
+p{
+  text-align: center;
+  padding: 1px;
+}

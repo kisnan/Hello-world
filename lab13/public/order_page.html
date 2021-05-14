@@ -1,0 +1,71 @@
+<script src="./product_data.js"></script>
+<script>
+    
+    function checkQuantityTextbox(qtyTextboxObj){
+        var errs = isNonNegInt(qtyTextboxObj.value, true);
+        qty_textbox_message.innerHTML = errs.join(',');
+    }
+
+    function isNonNegInt(q, returnErrors = false){
+        if (q=='') q=0;
+        var errors = [];
+        if(Number(q) !=q) errors.push('Error 404');
+        if(q < 0) errors.push('Please input a none negative value!');
+        if (parseInt(q) !=q) errors.push('Please input a valet number');
+    
+        return returnErrors? errors : (errors.length == 0);
+}
+
+    let params = (new URL(document.location)).searchParams;
+
+    function displayPurchase(){
+        if (isNonNegInt(quantity_textbox.value)==ture ){
+            document.write`Thank you for placing${quantity_form["quantity_textbox"]} things!`;
+    }  
+}
+
+//var params = (new URL(document.location)).searchParams;
+if(params.has('quantity_textbox')){
+    quantity_form['quantity_textbox'].value = params.get('quantity_textbox');
+    checkQuantityTextbox(quantity_form['quantity_textbox']);
+}
+
+
+</script>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body><center>
+    <form name="quantity_form" action="display_purchase?username=itm352" method="POST">
+        <script>
+            for(i in products){
+                            document.write(`<h3>${products[i]["model"]} at $${products[i]["price"]}<h3>`);
+                        } 
+        </script>
+        <labal>Quantity Desired</labal>
+            <input name='quantity_textbox' type="text" placeholder="Enter an amount" onkeyup="checkQuantityTextbox(this);">
+                <select name="product_select">
+                    <script>
+                        for(i in products){
+                            document.write(`<option value='${i}'>${products[i].model}</option>`);
+                        } 
+                    </script>
+                </select>
+        <span id='qty_textbox_message'>Enter a quantity</span></input>
+        <br>
+        <input type="submit" value="purchase"></input>
+    </form>
+    
+</body></center>
+</html>
+
+<script>
+
+
+</script>

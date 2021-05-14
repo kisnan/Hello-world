@@ -1,0 +1,72 @@
+<script src="./camera_product.js"></script>
+<script>
+    function isNonNegInt(q, returnErrors=false) {
+    errors = []; // assume no errors at first
+    if(q == ""){
+       q = 0;
+    }
+    if(Number(q) != q) errors.push('Not a number!'); // Check if string is a number value
+    if(q < 0) errors.push('Negative value!'); // Check if it is non-negative
+    if(parseInt(q) != q) errors.push('Not an integer!'); // Check that it is an integer
+    return returnErrors ? errors : (errors.length == 0);
+}
+    function checkQuantityTextbox(theTextbox) {
+        errs = isNonNegInt(theTextbox.value, true);
+        if (errs.length == 0) errs = ['You want:'];
+        if (theTextbox.value.trim() == '') errs = ['Quantity'];
+        //document.getElementById(theTextbox.name + '_label').innerHTML = errs.join(", ");
+    }
+</script>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>  Authorized Dealer Home Page</title>
+    <link href="products-style.css" rel="stylesheet">
+</head>
+<body>
+<header>
+        <h1><a href="./index.html"> <img src="./image/SonyAlpha.jpg" height="100px"></a> Sony Authorized Dealer</h1>
+</header>
+        
+<form action="add_to_cart" name="product_selection_form" value="product_selection_form" method="GET">    
+    <div>
+        <link href="nav_bar.css" rel="stylesheet">
+            <nav>    
+            <div class="w3-bar w3-black">
+                <a href="./index.html" class="w3-bar-item w3-button">Homepage</a>
+                <a href="products_display.html" class="w3-bar-item w3-button">Products</a>
+                <a href="login.html" class="w3-bar-item w3-button">Login</a>
+                <a href="cart.html" class="w3-bar-item w3-button">Shopping Cart</a>
+                <a href="about.html" class="w3-bar-item w3-button">About</a>
+            </nav>
+    </div> 
+        <main>
+            <script>
+                    for(let i in products){
+                        document.write(`
+                            <section class="item">
+                            <h2>${products[i].brand}</h2>
+                            <p>$${products[i].price}</p>
+                            <img src="${products[i].image}">
+                                
+                            <label id="quantity${i}_label"}">Quantity</label>
+                            <input type="text" placeholder="0" name="quantity[${i}]" onkeyup="checkQuantityTextbox(this);" >
+                            </section>`
+                        );
+                    } 
+            </script>
+        </main> 
+    <center><input type="submit" value="Add to Cart" name="purchase_submit">
+    <br>
+    </center>
+    <br>
+    </form>
+    
+</body>
+    <footer>
+        <h1>
+            Thank you for shopping with us!!!
+        </h1>
+    </footer>
+</html>

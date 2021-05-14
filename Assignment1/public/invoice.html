@@ -3,28 +3,6 @@
 <script>
     let params = (new URL(document.location)).searchParams;
     var quantity = [];
-    //process the form if the numbers were submitted
-    /*if (params.has('purchase_submit')){
-        for (i = 0; i <= products.length; i++){
-            if(params.has(`quantity${i}`)){
-                a_qty = params.has(`quantity${i}`);
-                quantity[i] = a_qty;
-            }
-        }
-    }else{
-        document.write('no number was input');
-    }
-    console.log(`quantity${i}`);*/
-
-
-    
-    //function for generate rows on the invoice.html, according to the numbers were input
-   
-    //need to work on this
-    //function generate_item_rows(product_quantity_array){
-        
-   // }
-
 </script>
 
 
@@ -47,6 +25,7 @@
     </tr>
     <tr>
     <script>
+        //Deploy a loop for the items
         subtotal = 0;
         for(i in products){
             a_qty = params.get(`quantity${i}`);
@@ -66,6 +45,7 @@
 
     </script>
     <script>
+        //complete the subtotal in the form
         var tax_rate = 0.0575;
         var tax = tax_rate*subtotal
 
@@ -80,7 +60,8 @@
         var total = subtotal + tax + shipping;
     </script>
     
-    <script> document.write(`
+    <script>//Using document.wirte to generate the subtotal tax shipping and the total
+        document.write(`
         <td colspan="4" width="100%">&nbsp;</td>
         </tr>
         <tr>

@@ -1,0 +1,100 @@
+<script src="./camera_product.js"></script>
+<script>
+    let params = (new URL(document.location)).searchParams;
+    var quantity = [];
+    var name = params.get("name");
+    var username = params.get('username');
+</script>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Invoice from Sont Authorized Dealer</title>
+    <link href="products-style.css" rel="stylesheet">
+</head>
+
+<body>
+    <br>
+    <center> 
+    <script>
+        document.write(`<form action="process_register${location.search}" method="post">`);
+
+        document.write(`<h3>Hi ${name}, Thank your for shopping with us!!</h3>`);
+    </script>
+    <br>
+    <table border="2">
+    <tbody>
+    <tr>
+      <th style="text-align: center;" width="43%">Item</th>
+      <th style="text-align: center;" width="11%">quantity</th>
+      <th style="text-align: center;" width="13%">price</th>
+      <th style="text-align: center;" width="54%">extended price</th>
+    </tr>
+    <tr>
+    <script>
+        subtotal = 0;
+        for(i in products){
+            a_qty = params.get(`quantity${i}`);
+            if(
+                a_qty == 0 
+                //!isNonNegInt(product_quantity_array[i])
+                ) continue;
+        extended_price = products[i].price * a_qty;
+        subtotal += extended_price;
+        document.write(`
+        <tr>
+            <td width="43%">${products[i].brand}</td>
+            <td align="center" width="11%">${a_qty}</td>
+            <td width="13%">$${products[i].price}</td>
+            <td width="54%">$${extended_price}</td>
+        </tr>`)} 
+
+    </script>
+    <script>
+        var tax_rate = 0.0575;
+        var tax = tax_rate*subtotal
+
+        if(subtotal <= 50){
+            shipping = 2; 
+        }else if(subtotal <= 100){
+            shipping = 5;
+        }else{
+            shipping = 0.05*subtotal
+        }
+
+        var total = subtotal + tax + shipping;
+    </script>
+    
+    <script> document.write(`
+        <td colspan="4" width="100%">&nbsp;</td>
+        </tr>
+        <tr>
+        <td style="text-align: center;" colspan="3" width="67%">Sub-total</td>
+        <td width="54%">$${subtotal}</td>
+        </tr>
+        <tr>
+        <td style="text-align: center;" colspan="3" width="67%"><span style="font-family: arial;">Tax @ ${tax_rate*100}%</span></td>
+        <td width="54%">$${tax.toFixed(2)}</td>
+        </tr>
+        <tr>
+        <td style="text-align: center;" colspan="3" width="67%"><span style="font-family: arial;">Shipping</span></td>
+        <td width="54%">$${shipping.toFixed(2)}</td>
+        </tr>
+        <tr>
+        <td style="text-align: center;" colspan="3" width="67%"><strong>Total</strong></td>
+        <td width="54%"><strong>$${total.toFixed(2)}</strong></td>
+        </tr>
+        `)
+</script>
+  </tbody>
+</table>
+<b><div>OUR SHIPPING POLICY IS:A subtotal $0 - $49.99 will be $2 shipping</div>
+    <div>A subtotal $50 - $99.99 will be $5 shipping</div>
+    <div>Subtotals over $100 will be charged 5% of the subtotal amount</div></b>
+</center>
+</body>
+</html>

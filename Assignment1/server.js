@@ -1,10 +1,17 @@
+//*
+//*
+//*Project: Assignemnt1
+//*ITM352
+//*Author: Qiyan Lin
+//*Professor: Den Port
+//*This code mean to be programming a server for Assignemnt1
 var express = require('express');
 var app = express();
 var myParser = require("body-parser");
 var fs = require('fs');
 var data = require('./public/camera_product.js');
 var products = data.products;
-
+//Enable any route to the server
 app.all('*', function(request, response, next){
     console.log(request.method + ' to ' + request.path);
     next();
