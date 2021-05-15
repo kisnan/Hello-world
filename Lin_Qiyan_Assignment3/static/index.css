@@ -1,0 +1,23 @@
+body {
+    text-align: center;
+    background: rgba(44, 112, 149, 0.496);
+    align-items: center;
+    font-family: 'Raleway', sans-serif;
+}
+
+img {
+    border: 5px solid rgb(2, 1, 1);
+    /* Gray border */
+    border-radius: 4px;
+    /* Rounded border */
+    padding: 5px;
+    /* Some padding */
+    width: 550px;
+    /* Set a small width */
+    align-items: center;
+}
+
+/* Add a hover effect (blue shadow) */
+img:hover {
+    box-shadow: 0 0 5px 1px black;
+}

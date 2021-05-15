@@ -1,0 +1,60 @@
+{ 
+    " FX3 Cinema Line camera": [ 
+        {
+            "name": "Combo 1",
+            "price": 120
+
+        },
+        {
+            "name": "Combo 2",
+            "price": 130
+        },
+        {
+            "name": "Camera Only",
+            "price": 100
+        }
+    ],
+    "a5100 Beginner E-mount camera": [ 
+        {
+            "name": "Combo 1",
+            "price": 20
+
+        },
+        {
+            "name": "Combo 2",
+            "price": 30
+        },
+        {
+            "name": "Camera Only",
+            "price": 10
+        }
+    ],
+    "a9 Full-frame camera": [
+        {
+            "name": "Combo 1",
+            "price": 100
+        },
+        {
+            "name": "Combo 2",
+            "price": 120
+        },
+        {
+            "name": "Camera Only",
+            "price": 90
+        }
+    ],
+    "a1 Flagship camera": [
+        {
+            "name": "Combo 1",
+            "price": 140
+        },
+        {
+            "name": "Combo 2",
+            "price": 150
+        },
+        {
+            "name": "Camera Only",
+            "price": 130
+        }
+    ]
+}

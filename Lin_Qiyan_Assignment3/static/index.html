@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sony Authorized Dealer Home Page</title>
+    <link href="index.css" rel="stylesheet">
+    <link href="nav_bar.css" rel="stylesheet">
+   
+</head>
+
+<body>
+    <h1>Sony Authorized Dealer Home Page</h1>
+    <a href="./products_display.html">
+        <img src="./image/SonyAlpha.jpg" width="600px">
+    </a>
+    <h1>Click the image to enter our online store!</h1>
+    <script>
+        if(typeof request.cookies["cookie_user"] != 'undefined'){
+            document.write(`Hi ${cookie_user['name']}, Please proceed to the store`);
+        }else{
+            document.write(`Existing Customer? Proceed to <a href="login.html">Login</a>`)
+    }
+    </script>
+</body>
+</html>

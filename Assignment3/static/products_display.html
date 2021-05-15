@@ -1,3 +1,8 @@
+
+<input type="radio" id="Combo A" name="combo" value="Combo A">
+<label for="co2">Combo A</label><br>
+<input type="radio" id="Combo B" name="combo" value="Combo B">
+<label for="co3">Combo B</label>
 <script src="./camera_product.js"></script>
 <script>
     function isNonNegInt(q, returnErrors=false) {
@@ -46,12 +51,18 @@
                     for(let i in products){
                         document.write(`
                             <section class="item">
+                            
                             <h2>${products[i].brand}</h2>
+                            
                             <p>$${products[i].price}</p>
                             <img src="${products[i].image}">
-                                
                             <label id="quantity${i}_label"}">Quantity</label>
-                            <input type="text" placeholder="0" name="quantity[${i}]" onkeyup="checkQuantityTextbox(this);" >
+                            <input type="text" placeholder="0" name="quantity[${i}]" onkeyup="checkQuantityTextbox(this);">
+
+
+                            
+                            
+                          
                             </section>`
                         );
                     } 

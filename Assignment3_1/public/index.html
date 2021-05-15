@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="index.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+        <script src="./functions.js"></script> 
+        <script>
+        var products_data;
+        loadJSON('get_products_data', function(response) {
+             // Parsing JSON string into object
+             products_data = JSON.parse(response);
+        });
+        var this_product_key = ''
+        </script>
+
+</head>
+<body>
+    <a href="./display_products.html">
+        <img src="./image/digital storage.jpg" width="600px">
+    </a>
+    <h1>Welcome to Digital Storage Store</h1>
+    <h2>Click the picture to enter</h2>
+   <br>
+</body>
+</html>

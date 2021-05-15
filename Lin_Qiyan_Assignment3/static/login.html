@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account - Login</title>
+    <link href="login.css" rel="stylesheet">
+    <header>
+      <h1><a href="./index.html"> <img src="./image/SonyAlpha.jpg" height="100px"></a> Sony Authorized Dealer</h1>
+  </header>    
+</head>
+<div>
+  <link href="nav_bar.css" rel="stylesheet">
+      <nav>    
+      <div class="w3-bar w3-black">
+        <a href="./index.html" class="w3-bar-item w3-button">Homepage</a>
+    <a href="products_display.html" class="w3-bar-item w3-button">Products</a>
+    <a href="login.html" class="w3-bar-item w3-button">Login</a>
+    <a href="cart.html" class="w3-bar-item w3-button">Shopping Cart</a>
+    <a href="about.html" class="w3-bar-item w3-button">About</a>
+      </nav>
+</div>  
+<body>
+    <script>
+      document.write(`<form action="process_login${location.search}" method="post">`);
+    </script>
+     <center>
+       
+    <div class="container">
+      <br>
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" required>
+      <br>
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+      <br>
+        <button type="submit">Login</button>
+      <br>  
+      <script>
+        document.write(`<p><b>Don't have an account?</b> <a href="./register.html${location.search}">Sign Up</a>.</p><form action="process_login${location.search}" method="post">`);
+      </script>   
+    </div> 
+  
+   
+    </center>
+</form>
+</body>
+</html>
+

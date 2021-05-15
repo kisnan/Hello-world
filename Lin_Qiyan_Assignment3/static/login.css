@@ -1,0 +1,65 @@
+ /* General */
+
+ html {
+  font-family: 'Raleway', sans-serif;
+  background-color: black;
+  font-size: 10px;
+  /*Background color*/
+  
+}
+body {
+  width: 800px;
+  margin: 0 auto;
+  background-color: rgba(235, 164, 30, 0.763);
+}
+
+h1 {
+  font-size: 5rem;
+  background-size: 48px 48px;
+  background-blend-mode: lighten;
+  margin: 0;
+  text-align: center;
+}
+
+header, aside, main, footer {
+  padding: 20px;
+}
+
+/*  Form styling */
+
+tbody{
+  background-color: orange;
+}
+p{
+  text-align: center;
+  font-size: 10rm;
+  padding: 1px;
+}
+a{
+  background-color: black;
+}
+input[type=text], input[type=password] {
+  width:10%;/*the length of the textbox*/
+  padding: 5px 10px;/*the hight, and the length of the textbox*/
+  border: 2px solid #ccc;
+}
+input.textbox{
+  align-content: center;
+}
+label{
+  margin: 10, auto;
+}
+button {
+  background-color: black;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+  display: inline-block;
+}
+button:hover{
+  background-color: orange;
+  color:white;
+}
